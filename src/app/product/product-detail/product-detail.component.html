@@ -1,0 +1,10 @@
+<i *ngIf="isLoading$; else loaded" nz-icon nzType="loading" nzTheme="outline"></i>
+<ng-template #loaded>
+    <ng-container *ngIf="product$ | async as product; else noData">
+        <p>{{ product.name }}</p>
+    </ng-container>
+</ng-template>
+
+<ng-template #noData>
+    <nz-empty></nz-empty>
+</ng-template>

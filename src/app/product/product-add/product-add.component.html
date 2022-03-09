@@ -1,0 +1,96 @@
+<h1>Thêm Sản phẩm</h1>
+
+<form nz-form [formGroup]="form">
+    <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label>Tên sản phẩm</nz-form-label>
+                <nz-form-control>
+                    <input formControlName="name" nz-input placeholder="please enter user name " />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label>Giá</nz-form-label>
+                <nz-form-control>
+                    <nz-input-group nzAddOnBefore="$" nzAddOnAfter="USD">
+                        <input formControlName="unitPrice" type="text" nz-input placeholder="Nhập số tiền" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label>Số lượng</nz-form-label>
+                <nz-form-control>
+                    <input formControlName="quantity" type="text" nz-input placeholder="Nhập số lượng" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label>Giảm giá</nz-form-label>
+                <nz-form-control>
+                    <input formControlName="discount" type="text" nz-input placeholder="Nhập giảm giá" />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+    <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label>Description</nz-form-label>
+                <nz-form-control>
+                    <textarea formControlName="description" nz-input z-input placeholder="Nhập mô tả" [nzAutosize]="{ minRows: 5, maxRows: 10 }"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label>Sản phẩm đặc biệt</nz-form-label>
+                <nz-form-control>
+                    <nz-switch formControlName="special" nzSize="default"></nz-switch>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+    <div nz-row [nzGutter]="8">
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label>Loại sản phẩm</nz-form-label>
+                <nz-form-control>
+                    <nz-select formControlName="categoryId" nzPlaceHolder="Chọn loại sản phẩm" [nzAllowClear]="true">
+                        <nz-option nzValue="1000" nzLabel="Đồng hồ đeo tay"></nz-option>
+                        <nz-option nzValue="1001" nzLabel="Máy tính xách tay"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col nzSpan="24">
+            <nz-form-item>
+                <nz-form-label>Image sản phẩm</nz-form-label>
+                <nz-form-control>
+                    <nz-upload nzAction="https://www.mocky.io/v2/5cc8019d300000980a055e76" nzListType="picture" [(nzFileList)]="fileList1">
+                        <button nz-button>
+              <i nz-icon nzType="upload"></i>
+              Upload
+            </button>
+                    </nz-upload>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+</form>
+<div style="float: right">
+    <button *ngIf="!isUpdate" nz-button nzType="primary" (click)="addProduct()">
+    Thêm sản phẩm
+  </button>
+    <button *ngIf="isUpdate" nz-button nzType="primary" (click)="updateProduct()">
+    Sửa sản phẩm
+  </button>
+</div>
