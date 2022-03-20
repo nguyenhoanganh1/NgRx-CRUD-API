@@ -1,6 +1,8 @@
 # Luyentap
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.2.
+![image](https://user-images.githubusercontent.com/52159078/159163349-214c9a09-0b1a-4971-851c-31cb57e6a838.png)
+
 
 ## Development server
 
